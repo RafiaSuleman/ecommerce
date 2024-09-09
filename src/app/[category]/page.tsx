@@ -1,5 +1,6 @@
 import { client } from "@/lib/sanity";
 import { simplifiedProduct } from "../interface";
+import Image from "next/image";
 
 // Fixing the typo in the parameter 'category'
 async function getData(category: string) {
@@ -29,7 +30,7 @@ export default async function CategoryPage({
       {data.map((product) => (
         <div key={product._id}>
           <h2>{product.name}</h2>
-          <img src={product.imageUrl} alt={product.name} />
+          <Image src={product.imageUrl} alt={product.name} />
           <p>{product.price}</p>
         </div>
       ))}
