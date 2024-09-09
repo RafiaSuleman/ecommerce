@@ -1,34 +1,16 @@
 "use client";
+
+import { urlFor } from "@/lib/sanity";
 import Image from "next/image";
 import { useState } from "react";
 
-import { createClient } from 'next-sanity';
-import imageUrlBuilder from '@sanity/image-url';
-
-// Define the CustomSanityImageSource type
-interface CustomSanityImageSource {
-  _type: string;
+interface ImageType {
+  _key: string;
+  _type: 'image';
   asset: {
     _ref: string;
-    _type: string;
+    _type: 'reference';
   };
-}
-
-export const client = createClient({
-  projectId: 'dqzugms3',
-  dataset: 'production',
-  apiVersion: '2024-07-09',
-  useCdn: true,
-});
-
-const builder = imageUrlBuilder(client);
-
-export function urlFor(source: CustomSanityImageSource) {
-  return builder.image(source);
-}
-
-interface ImageType extends CustomSanityImageSource {
-  _id: string;
 }
 
 interface iAppProps {
@@ -46,7 +28,7 @@ export default function ImageGallery({ images }: iAppProps) {
     <div className="grid gap-4 lg:grid-cols-5">
       <div className="order-last flex gap-4 lg:order-none lg:flex-col">
         {images.map((image) => (
-          <div key={image._id} className="overflow-hidden rounded-lg bg-gray-100">
+          <div key={image._key} className="overflow-hidden rounded-lg bg-gray-100">
             <Image
               src={urlFor(image).url()}
               width={200}
