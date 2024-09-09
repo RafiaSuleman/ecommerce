@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Fixing the typo in the parameter 'category'
-async function getData(category: string) {
-  const query = `*[_type == "product" && category->name == "${category}"] {
+async function getData(cateogry: string) {
+  const query = `*[_type == "product" && category->name == "${cateogry}"] {
     _id,
     "imageUrl": images[0].asset->url,
     price,
