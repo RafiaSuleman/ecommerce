@@ -1,5 +1,4 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -9,15 +8,10 @@ import {
 import { useShoppingCart } from "use-shopping-cart";
 
 export default function ShoppingCartModal() {
-  const {
-    cartCount,
-    shouldDisplayCart,
-    handleCartClick,
-  } = useShoppingCart();
+  const {cartCount} = useShoppingCart();
 
  
   return (
-    // <Sheet open={shouldDisplayCart} onOpenChange={() => handleCartClick()}>
     <Sheet defaultOpen>
       <SheetContent className="sm:max-w-lg w-[90vw]">
         <SheetHeader>
