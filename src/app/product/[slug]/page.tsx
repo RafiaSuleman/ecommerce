@@ -2,7 +2,7 @@
 
 import { fullProduct } from "@/app/interface";
 import { Button } from "@/components/ui/button";
-import ImageGallery from "@/components/ui/imageGallery";
+import ImageGallery from "@/components/imageGallery";
 import { client } from "@/lib/sanity";
 import { Star, Truck } from "lucide-react";
 
