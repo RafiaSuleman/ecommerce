@@ -1,6 +1,5 @@
 import Hero from "@/components/ui/hero";
 import Newest from "@/components/ui/newest";
-import ShoppingCartModal from "@/components/ui/ShoppingCartModal";
 
 export default function Home() {
   return (
