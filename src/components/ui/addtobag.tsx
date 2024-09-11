@@ -4,6 +4,7 @@ import { Button } from "./button";
 import { useShoppingCart } from "use-shopping-cart";
 
 export interface ProductImage {
+    _type: string;  // Add '_type' field to match 'CustomSanityImageSource'
     asset: {
         _ref: string;
         _type: string;
@@ -15,10 +16,10 @@ export interface ProductCart{
     description: string;
     price: number;
     currency: string;
-    image: any;  // Specify image type here
+    image: ProductImage;  // Use the updated 'ProductImage' type
 }
 
-export default function AddToBag({currency,description,image,name,price}:ProductCart){
+export default function AddToBag({ currency, description, image, name, price }: ProductCart) {
     const { addItem, handleCartClick } = useShoppingCart();
     
     const product = {
@@ -26,7 +27,7 @@ export default function AddToBag({currency,description,image,name,price}:Product
         description: description,
         price: price,
         currency: currency,
-        image: urlFor(image).url(), // You can still use urlFor
+        image: urlFor(image).url(), // Use urlFor to get the image URL
         id: "4398754092"
     };
 
