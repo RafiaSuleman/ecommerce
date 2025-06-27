@@ -5,7 +5,7 @@ import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'ecommerce-youtube',
+  title: 'Sunny Garments',
 
   projectId: 'dqzugms3',
   dataset: 'production',
